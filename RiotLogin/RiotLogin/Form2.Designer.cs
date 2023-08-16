@@ -174,3 +174,5 @@
         private System.Windows.Forms.CheckBox checkBox1;
     }
 }
+
+// coded by lithellx - https://github.com/lithellx
