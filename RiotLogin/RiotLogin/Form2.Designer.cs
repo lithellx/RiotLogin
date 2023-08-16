@@ -150,11 +150,13 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(386, 364);
+            this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(386, 364);
             this.Name = "Form2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RiotLogin Settings";
+            this.Text = "RiotLogin Settings - lithellx";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
