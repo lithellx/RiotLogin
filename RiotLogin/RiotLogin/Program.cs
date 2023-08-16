@@ -20,3 +20,5 @@ namespace RiotLogin
         }
     }
 }
+
+// coded by lithellx - https://github.com/lithellx
