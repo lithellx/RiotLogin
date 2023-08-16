@@ -15,4 +15,4 @@ Add your account on settings screen and select account to log in.
 Videos will be added.
 
 ## Authors
-[lithe](https://github.com/lithell)
+[lithé](https://github.com/lithell)
