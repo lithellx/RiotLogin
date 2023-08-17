@@ -8,9 +8,8 @@ I just finished the program so I didn't asked Riot if this is forbidden program.
 Add your account on settings screen and select account to log in.
 
 ## Media
-<img src="/Images/RiotLogin1.png" width="100"/>
-![GitHub Logo](/Images/RiotLogin1.png)
-![GitHub Logo](/Images/RiotLogin2.png)
+<img src="/Images/RiotLogin1.png" width="400"/>
+<img src="/Images/RiotLogin2.png" width="400"/>
 
 ## Notes
 Videos will be added.
