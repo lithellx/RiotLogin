@@ -4,7 +4,7 @@ RiotLogin is automatic login tool for Riot Client.
 **NewtonsoftJSON needed to build this project!**
 
 There is no internal process. Its fully external.
-I just finished the program so I didn't asked Riot if this is forbidden program. But i'll.
+I asked Riot if my program is legal or not. Waiting for response.
 
 ## Usage
 Add your account on settings screen and select account to log in.
