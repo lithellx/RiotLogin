@@ -26,4 +26,4 @@ Videos will be added.
 **NewtonsoftJSON needed to build this project!**
 
 ## Authors
-[lithé](https://github.com/lithellx)
+[lithellx](https://github.com/lithellx)
