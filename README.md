@@ -23,7 +23,7 @@ Add your account on settings screen and select account to log in. Then click Log
 Videos will be added.
 
 
-**NewtonsoftJSON needed to build this project!**
+**You must install NewtonsoftJSON package to build this project!**
 
 ## Authors
 [lithellx](https://github.com/lithellx)
