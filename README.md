@@ -1,7 +1,8 @@
 ## About RiotLogin
 RiotLogin is automatic login tool for Riot Client.
 
-[![RiotLogin](https://img.shields.io/github/downloads/lithellx/RiotLogin/total.svg)]()
+[![RiotLogin](https://img.shields.io/github/downloads/lithellx/RiotLogin/total?style=for-the-badge&label=RiotLogin%20Downloads)]()
+
 
 There is no internal process. Its fully external.
 
