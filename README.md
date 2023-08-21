@@ -8,7 +8,7 @@ There is no internal process. Its fully external.
 ## What Riot Support think about RiotLogin?
 
 Riot Support staff told me that they can't say for sure whether this app will get you banned or not.
-"When Vanguard is turned on, using kind of programs like RiotLogin and doing stuff with it can get you banned, even it is very unlikely. Therefore, I cannot guarantee that you will not be banned."
+"When Vanguard is turned on, using kind of programs like RiotLogin and doing stuff with it can get you banned, even it is very unlikely. Therefore, I cannot guarantee that you will not be banned." I'm using RiotLogin myself. And that's why i coded it for.
 
 So if you're using RiotLogin for LoL, TFT or LoR and Vanguard isn't turned on then you're okay with it. **But if you use RiotLogin for VALORANT or Vanguard is turned on** (although I don't think you will be banned), **use it on your own risk**.
 
