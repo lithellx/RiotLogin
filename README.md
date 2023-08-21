@@ -3,7 +3,7 @@ RiotLogin is automatic login tool for Riot Client.
 
 [![RiotLogin](https://img.shields.io/github/downloads/lithellx/RiotLogin/total?style=for-the-badge&label=RiotLogin%20Downloads&color=red)]()
 
-There is no internal process. Its fully external.
+This program uses SendKeys. Not any Riot API or anything illegal. Does what you do but faster and can save accounts.
 
 ## What Riot Support think about RiotLogin?
 
