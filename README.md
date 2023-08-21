@@ -1,3 +1,4 @@
+<center>
 ## About RiotLogin
 RiotLogin is automatic login tool for Riot Client.
 
@@ -28,3 +29,4 @@ Videos will be added.
 
 ## Authors
 [lithellx](https://github.com/lithellx)
+</center>
