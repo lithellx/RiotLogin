@@ -36,6 +36,10 @@ namespace RiotLogin
         internal static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
         const byte VK_TAB = 0x09, VK_ENTER = 0x0D, VK_SPACE = 0x20, KEYEVENTF_KEYUP = 0x02;
+        
+        public string RiotClientProcessName = "RiotClientUx"; // RiotClientUx
+        public string RiotGamesPath = ""; // "C:\\Riot Games"
+        public string RiotClientExe = "\\Riot Client\\RiotClientServices.exe"; // "\\Riot Client\\RiotClientServices.exe"
 
         private static void FocusProcess(string ProcessName)
         {
@@ -52,6 +56,11 @@ namespace RiotLogin
             }
         }
 
+        void RunRiotClient()
+        {
+            Process.Start(RiotGamesPath + RiotClientExe);
+        }
+
         private void LoadData()
         {
             if (listView1.Items.Count != 0)
@@ -59,108 +68,154 @@ namespace RiotLogin
                 listView1.Items.Clear();
             }
 
-            string data = File.ReadAllText("info.json");
-            JObject obj = JObject.Parse(data);
-            bool rememberme = (bool)obj["RememberMe"];
-
-            if (rememberme == true)
+            if (File.Exists("info.json"))
             {
-                checkBox1.Checked = true;
-            }
-            else
-                checkBox1.Checked = false;
+                string data = File.ReadAllText("info.json");
+                JObject obj = JObject.Parse(data);
+                RiotGamesPath = (string)obj["RiotGamesPath"];
+                bool rememberme = (bool)obj["RememberMe"];
 
-            var fileName = "info.json";
-            StreamReader reader = new StreamReader(fileName);
-            var content = reader.ReadToEnd();
-            DataTable profiles = JObject.Parse(content)["Profiles"].ToObject<DataTable>();
-
-            foreach (DataRow row in profiles.Rows)
-            {
-                ListViewItem item = new ListViewItem(row[0].ToString());
-                for (int i = 1; i < profiles.Columns.Count; i++)
+                if (rememberme == true)
                 {
-                    item.SubItems.Add(row[i].ToString());
+                    checkBox1.Checked = true;
+                }
+                else
+                    checkBox1.Checked = false;
+
+                var fileName = "info.json";
+                StreamReader reader = new StreamReader(fileName);
+                var content = reader.ReadToEnd();
+                DataTable profiles = JObject.Parse(content)["Profiles"].ToObject<DataTable>();
+
+                foreach (DataRow row in profiles.Rows)
+                {
+                    ListViewItem item = new ListViewItem(row[0].ToString());
+                    for (int i = 1; i < profiles.Columns.Count; i++)
+                    {
+                        item.SubItems.Add(row[i].ToString());
+                    }
+
+                    listView1.Items.Add(item);
                 }
 
-                listView1.Items.Add(item);
+                reader.Close();
             }
-
-            reader.Close();
+            else
+            {
+                string jsonTemplate = "{\r\n  \"RememberMe\": 0,\r\n  \"ExportData\": 1,\r\n  \"RiotGamesPath\": \"C:\\\\Riot Games\",\r\n  \"Profiles\": [\r\n  ]\r\n}";
+                File.WriteAllText("info.json", jsonTemplate);
+                LoadData();
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            listView1.FullRowSelect = true;
-            listView1.MultiSelect = false;
-            
+            if (!File.Exists("Newtonsoft.Json.dll"))
+            {
+                MessageBox.Show("RiotLogin cannot found \"Newtonsoft.Json.dll\".", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Application.Exit();
+            }
             LoadData();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
+            Process[] RiotClient = Process.GetProcessesByName(RiotClientProcessName);
+            if (RiotClient.Length > 0)
             {
-                string username = listView1.SelectedItems[0].SubItems[1].Text;
-                string password = listView1.SelectedItems[0].SubItems[2].Text;
-
-                FocusProcess("RiotClientUx");
-
-                if (checkBox1.Checked == true)
+                if (listView1.SelectedItems.Count > 0)
                 {
-                    SendKeys.Send(username);
+                    string username = listView1.SelectedItems[0].SubItems[1].Text;
+                    string password = listView1.SelectedItems[0].SubItems[2].Text;
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                    FocusProcess(RiotClientProcessName);
 
-                    SendKeys.Send(password);
+                    if (checkBox1.Checked == true)
+                    {
+                        SendKeys.Send(username);
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        SendKeys.Send(password);
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                    keybd_event(VK_SPACE, 0, 0, 0);
-                    keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                    Thread.Sleep(100);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_SPACE, 0, 0, 0);
+                        keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-                    keybd_event(VK_ENTER, 0, 0, 0);
-                    keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
+                        Thread.Sleep(100);
+
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+
+                        keybd_event(VK_ENTER, 0, 0, 0);
+                        keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
+                    }
+                    else
+                    {
+                        SendKeys.Send(username);
+
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+
+                        SendKeys.Send(password);
+
+                        keybd_event(VK_ENTER, 0, 0, 0);
+                        keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
+                    }
                 }
                 else
                 {
-                    SendKeys.Send(username);
-
-                    keybd_event(VK_TAB, 0, 0, 0);
-                    keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
-
-                    SendKeys.Send(password);
-
-                    keybd_event(VK_ENTER, 0, 0, 0);
-                    keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
+                    MessageBox.Show("Select account info to log in.", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
-                MessageBox.Show("Select account info to log in.", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+            {
+                if (File.Exists(RiotGamesPath + RiotClientExe))
+                {
+                    MessageBox.Show("Riot Client is being started. Please wait until it fully starts.", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    RunRiotClient();
+                }
+                else
+                {
+                    DialogResult dialogResult = MessageBox.Show("RiotLogin couldn't find Riot Games path. Would you like to select path by yourself (Yes) or open Riot Client manually (No)?", "RiotLogin", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        FolderBrowserDialog rcpDialog = new FolderBrowserDialog();
+                        rcpDialog.Description = "Select the \"Riot Games\" folder.";
+                        if (rcpDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            RiotGamesPath = rcpDialog.SelectedPath;
+                            string data = File.ReadAllText("info.json");
+                            dynamic obj = JsonConvert.DeserializeObject(data);
+                           if (RiotGamesPath != string.Empty)
+                                obj["RiotGamesPath"] = RiotGamesPath;
+                            string output = JsonConvert.SerializeObject(obj, Formatting.Indented);
+                            File.WriteAllText("info.json", output);
+                            LoadData();
+                        }
+                        RunRiotClient();
+                    }
+                }
+            }
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("You will see your password on this screen. Do you want to continue?", "RiotLogin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            DialogResult dialogResult = MessageBox.Show("You will see your passwords on this screen. Do you want to continue?", "RiotLogin", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
                 Form2 frm2 = new Form2();
