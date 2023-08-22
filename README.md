@@ -24,10 +24,10 @@ Add your account on settings screen and select account to log in. Then click Log
 Videos will be added.
 
 
-https://www.unknowncheats.me/forum/league-of-legends/597675-riotlogin-automatic-riot-client-login-tool.html
-
-
 **You must install NewtonsoftJSON package to build this project!**
+
+
+https://www.unknowncheats.me/forum/league-of-legends/597675-riotlogin-automatic-riot-client-login-tool.html
 
 ## Authors
 [lithellx](https://github.com/lithellx)
