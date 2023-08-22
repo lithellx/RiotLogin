@@ -13,6 +13,7 @@ Riot Support staff told me that they can't say for sure whether this app will ge
 So if you're using RiotLogin for LoL, TFT or LoR and Vanguard isn't turned on then you're okay with it. **But if you use RiotLogin for VALORANT or Vanguard is turned on** (although I don't think you will be banned), **use it on your own risk**. (I'm using RiotLogin myself. And that's why i coded it for.)
 
 ## Usage
+Keep RiotLogin.exe, Newtonsoft.Json.dll, info.json together. (If info.json isn't in the directory it'll be created automatically)
 Add your account on settings screen and select account to log in. Then click Login. That's it!
 
 ## Media
