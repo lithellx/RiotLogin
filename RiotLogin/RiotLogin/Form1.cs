@@ -16,6 +16,7 @@ using System.Windows.Forms;
 using System.Text.Json;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Net;
 
 namespace RiotLogin
 {
@@ -112,7 +113,7 @@ namespace RiotLogin
         {
             if (!File.Exists("Newtonsoft.Json.dll"))
             {
-                MessageBox.Show("RiotLogin cannot found \"Newtonsoft.Json.dll\".", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("RiotLogin cannot found \"Newtonsoft.Json.dll\". Please make sure you keep dll in same folder with the program.", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
             LoadData();
