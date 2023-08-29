@@ -15,11 +15,15 @@ Keep RiotLogin.exe, Newtonsoft.Json.dll, info.json together. (If info.json isn't
 Add your account on settings screen and select account to log in. Then click Login. That's it!
 
 ## Media
+Video of how to use RiotLogin:
+
+https://github.com/lithellx/RiotLogin/assets/45209073/1610b1e8-ab83-4cbb-92c1-7fd6a0ee88e1
+
+Screenshots:
 <img src="/Images/RiotLogin1.png" width="400"/>
 <img src="/Images/RiotLogin2.png" width="400"/>
 
 ## Notes
-Videos will be added.
 
 **You must install NewtonsoftJSON package to build this project!**
 
