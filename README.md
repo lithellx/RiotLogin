@@ -20,6 +20,7 @@ Video of how to use RiotLogin:
 https://github.com/lithellx/RiotLogin/assets/45209073/1610b1e8-ab83-4cbb-92c1-7fd6a0ee88e1
 
 Screenshots:
+
 <img src="/Images/RiotLogin1.png" width="400"/>
 <img src="/Images/RiotLogin2.png" width="400"/>
 
