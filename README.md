@@ -14,6 +14,9 @@ So if you're using RiotLogin for LoL, TFT or LoR and Vanguard isn't turned on th
 Keep RiotLogin.exe, Newtonsoft.Json.dll, info.json together. (If info.json isn't in the directory it'll be created automatically)
 Add your account on settings screen and select account to log in. Then click Login. That's it!
 
+## Status
+Working (Updated on 02.23.2024)
+
 ## Media
 Video of how to use RiotLogin:
 
