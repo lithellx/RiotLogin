@@ -16,6 +16,7 @@ Add your account on settings screen and select account to log in. Then click Log
 
 ## Status
 Working (Updated on 02.23.2024)
+Client process name "RiotClientUx" -> "Riot Client"
 
 ## Media
 Video of how to use RiotLogin:
