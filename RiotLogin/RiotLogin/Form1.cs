@@ -1,4 +1,4 @@
-﻿using Newtonsoft.Json;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -38,7 +38,7 @@ namespace RiotLogin
 
         const byte VK_TAB = 0x09, VK_ENTER = 0x0D, VK_SPACE = 0x20, KEYEVENTF_KEYUP = 0x02;
         
-        public string RiotClientProcessName = "RiotClientUx"; // RiotClientUx
+        public string RiotClientProcessName = "Riot Client"; // RiotClient
         public string RiotGamesPath = ""; // "C:\\Riot Games"
         public string RiotClientExe = "\\Riot Client\\RiotClientServices.exe"; // "\\Riot Client\\RiotClientServices.exe"
 
