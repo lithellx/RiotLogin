@@ -40,10 +40,9 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(13, 227);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBox1.Location = new System.Drawing.Point(10, 184);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(119, 20);
+            this.checkBox1.Size = new System.Drawing.Size(95, 17);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Remember Me";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -51,10 +50,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(14, 255);
-            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Location = new System.Drawing.Point(10, 207);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(118, 28);
+            this.button1.Size = new System.Drawing.Size(88, 23);
             this.button1.TabIndex = 1;
             this.button1.Text = "Login";
             this.button1.UseVisualStyleBackColor = true;
@@ -65,11 +63,12 @@
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.listView1.FullRowSelect = true;
+            this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(13, 13);
-            this.listView1.Margin = new System.Windows.Forms.Padding(4);
+            this.listView1.Location = new System.Drawing.Point(10, 11);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(245, 206);
+            this.listView1.Size = new System.Drawing.Size(185, 168);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -86,10 +85,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(140, 255);
-            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Location = new System.Drawing.Point(105, 207);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(118, 28);
+            this.button2.Size = new System.Drawing.Size(88, 23);
             this.button2.TabIndex = 8;
             this.button2.Text = "Settings";
             this.button2.UseVisualStyleBackColor = true;
@@ -97,22 +95,21 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(271, 296);
+            this.ClientSize = new System.Drawing.Size(205, 247);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.checkBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(289, 343);
+            this.MaximumSize = new System.Drawing.Size(221, 286);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(289, 343);
+            this.MinimumSize = new System.Drawing.Size(221, 286);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "RiotLogin - lithellx";
+            this.Text = "RiotLogin 1.3 - lithellx";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
