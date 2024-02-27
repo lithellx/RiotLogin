@@ -42,7 +42,21 @@ namespace RiotLogin
         public string RiotGamesPath = ""; // "C:\\Riot Games"
         public string RiotClientExe = "\\Riot Client\\RiotClientServices.exe"; // "\\Riot Client\\RiotClientServices.exe"
 
-        private static bool FocusProcess(string ProcessName)
+        private static bool isProcessA(string processName)
+        {
+            IntPtr hWnd; //change this to IntPtr
+            Process[] processRunning = Process.GetProcesses();
+            foreach (Process pr in processRunning)
+            {
+                if (pr.ProcessName == processName)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private static void FocusProcess(string ProcessName)
         {
             IntPtr hWnd; //change this to IntPtr
             Process[] processRunning = Process.GetProcesses();
@@ -53,10 +67,8 @@ namespace RiotLogin
                     hWnd = pr.MainWindowHandle; //use it as IntPtr not int
                     ShowWindow(hWnd, 1);
                     SetForegroundWindow(hWnd); //set to topmost
-                    return true;
                 }
             }
-            return false;
         }
 
         void RunRiotClient()
@@ -113,6 +125,8 @@ namespace RiotLogin
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            FocusProcess("Riot Client");
+
             if (!File.Exists("Newtonsoft.Json.dll"))
             {
                 MessageBox.Show("RiotLogin cannot found \"Newtonsoft.Json.dll\". Please make sure you keep dll in same folder with the program.", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -132,58 +146,59 @@ namespace RiotLogin
                     string username = listView1.SelectedItems[0].SubItems[1].Text;
                     string password = listView1.SelectedItems[0].SubItems[2].Text;
 
-                    if (FocusProcess(RiotClientProc) || FocusProcess(RiotClientUxProc))
+                    if (isProcessA(RiotClientProc))
+                        FocusProcess(RiotClientProc);
+                    else
+                        FocusProcess(RiotClientUxProc);
+                    
+                    if (checkBox1.Checked == true)
                     {
+                        SendKeys.Send(username);
 
-                        if (checkBox1.Checked == true)
-                        {
-                            SendKeys.Send(username);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        SendKeys.Send(password);
 
-                            SendKeys.Send(password);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_SPACE, 0, 0, 0);
+                        keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_SPACE, 0, 0, 0);
-                            keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
+                        Thread.Sleep(100);
 
-                            Thread.Sleep(100);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        keybd_event(VK_ENTER, 0, 0, 0);
+                        keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
+                    }
+                    else
+                    {
+                        SendKeys.Send(username);
 
-                            keybd_event(VK_ENTER, 0, 0, 0);
-                            keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
-                        }
-                        else
-                        {
-                            SendKeys.Send(username);
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
-                            keybd_event(VK_TAB, 0, 0, 0);
-                            keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
+                        Thread.Sleep(100);
 
-                            Thread.Sleep(100);
+                        SendKeys.Send(password);
 
-                            SendKeys.Send(password);
-
-                            keybd_event(VK_ENTER, 0, 0, 0);
-                            keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
-                        }
+                        keybd_event(VK_ENTER, 0, 0, 0);
+                        keybd_event(VK_ENTER, 0, KEYEVENTF_KEYUP, 0);
                     }
                 }
                 else
