@@ -16,6 +16,7 @@ Add your account on settings screen and select account to log in. Then click Log
 
 ## Status
 [Working]
+
 -Updated because of new Playstation button on login screen. (Updated on 11.25.2024)
 
 -Client process name "RiotClientUx" -> "Riot Client" (Updated on 02.23.2024)
