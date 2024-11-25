@@ -36,11 +36,18 @@ namespace RiotLogin
         [DllImport("user32.dll")]
         internal static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
+        //[DllImport("user32.dll", SetLastError = true)]
+        //private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        //IntPtr hWnd = FindWindow(null, "Riot Client");
+
+
         const byte VK_TAB = 0x09, VK_ENTER = 0x0D, VK_SPACE = 0x20, KEYEVENTF_KEYUP = 0x02;
         
         public string RiotClientProc = "Riot Client", RiotClientUxProc = "RiotClientUx"; // Riot Client & RiotClientUx
         public string RiotGamesPath = ""; // "C:\\Riot Games"
         public string RiotClientExe = "\\Riot Client\\RiotClientServices.exe"; // "\\Riot Client\\RiotClientServices.exe"
+
+        
 
         private static bool isProcessA(string processName)
         {
@@ -150,7 +157,7 @@ namespace RiotLogin
                         FocusProcess(RiotClientProc);
                     else
                         FocusProcess(RiotClientUxProc);
-                    
+
                     if (checkBox1.Checked == true)
                     {
                         SendKeys.Send(username);
@@ -159,6 +166,9 @@ namespace RiotLogin
                         keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
                         SendKeys.Send(password);
+
+                        keybd_event(VK_TAB, 0, 0, 0);
+                        keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
 
                         keybd_event(VK_TAB, 0, 0, 0);
                         keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
@@ -189,6 +199,7 @@ namespace RiotLogin
                     else
                     {
                         SendKeys.Send(username);
+                        SendKeys.Send("%");
 
                         keybd_event(VK_TAB, 0, 0, 0);
                         keybd_event(VK_TAB, 0, KEYEVENTF_KEYUP, 0);
