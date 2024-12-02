@@ -148,10 +148,20 @@ namespace RiotLogin
                 tempObj.Add("Password", textBox3.Text);
                 array.Remove(tempObj);
 
-                string edit = JsonConvert.SerializeObject(obj);
-                string edit2 = "," + JsonConvert.SerializeObject(tempObj);
-                string result = RemoveFirstInstanceOfString(edit, edit2);
-                Clipboard.SetText(edit2);
+                string edit, edit2, result;
+                if (array.Count > 1)
+                {
+                    edit = JsonConvert.SerializeObject(obj);
+                    edit2 = "," + JsonConvert.SerializeObject(tempObj);
+                    result = RemoveFirstInstanceOfString(edit, edit2);
+                }
+                else
+                {
+                    edit = JsonConvert.SerializeObject(obj);
+                    edit2 = JsonConvert.SerializeObject(tempObj);
+                    result = RemoveFirstInstanceOfString(edit, edit2);
+                }
+
                 JObject obj2 = JObject.Parse(result);
                 string output = JsonConvert.SerializeObject(obj2, Formatting.Indented);
                 File.WriteAllText("info.json", output);
