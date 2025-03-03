@@ -94,10 +94,10 @@ namespace RiotLogin
             {
                 string data = File.ReadAllText("info.json");
                 JObject obj = JObject.Parse(data);
+                bool rememberMe = (bool)obj["RememberMe"];
                 RiotGamesPath = (string)obj["RiotGamesPath"];
-                bool rememberme = (bool)obj["RememberMe"];
 
-                if (rememberme == true)
+                if (rememberMe == true)
                 {
                     checkBox1.Checked = true;
                 }
@@ -124,7 +124,7 @@ namespace RiotLogin
             }
             else
             {
-                string jsonTemplate = "{\r\n  \"RememberMe\": 0,\r\n  \"ExportData\": 1,\r\n  \"RiotGamesPath\": \"C:\\\\Riot Games\",\r\n  \"Profiles\": [\r\n  ]\r\n}";
+                string jsonTemplate = "{\r\n  \"RememberMe\": 0,\r\n  \"RiotGamesPath\": \"C:\\\\Riot Games\",\r\n  \"Profiles\": [\r\n  ]\r\n}";
                 File.WriteAllText("info.json", jsonTemplate);
                 LoadData();
             }
@@ -139,6 +139,7 @@ namespace RiotLogin
                 MessageBox.Show("RiotLogin cannot found \"Newtonsoft.Json.dll\". Please make sure you keep dll in same folder with the program.", "RiotLogin", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 Application.Exit();
             }
+
             LoadData();
         }
 

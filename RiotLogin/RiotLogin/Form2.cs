@@ -33,14 +33,14 @@ namespace RiotLogin
 
             string data = File.ReadAllText("info.json");
             JObject obj = JObject.Parse(data);
-            bool exportdata = (bool)obj["ExportData"];
+            //bool exportdata = (bool)obj["ExportData"];
 
-            if (exportdata == true)
-            {
-                checkBox1.Checked = true;
-            }
-            else
-                checkBox1.Checked = false;
+            //if (exportdata == true)
+            //{
+            //    checkBox1.Checked = true;
+            //}
+            //else
+            //    checkBox1.Checked = false;
 
             var fileName = "info.json";
             StreamReader reader = new StreamReader(fileName);
@@ -67,17 +67,6 @@ namespace RiotLogin
             listView1.MultiSelect = false;
 
             LoadData();
-        }
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (listView1.SelectedItems.Count > 0 && checkBox1.Checked == true)
-            {
-                textBox1.Text = listView1.SelectedItems[0].SubItems[0].Text;
-                textBox2.Text = listView1.SelectedItems[0].SubItems[1].Text;
-                textBox3.Text = listView1.SelectedItems[0].SubItems[2].Text;
-                Action doNothing = () => { };
-            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -180,13 +169,24 @@ namespace RiotLogin
 
             string data = File.ReadAllText("info.json");
             dynamic obj = JsonConvert.DeserializeObject(data);
-            if (checkBox1.Checked == true)
-                obj["ExportData"] = 1;
-            else
-                obj["ExportData"] = 0;
+            //if (checkBox1.Checked == true)
+            //    obj["ExportData"] = 1;
+            //else
+            //    obj["ExportData"] = 0;
             string output = JsonConvert.SerializeObject(obj, Formatting.Indented);
             File.WriteAllText("info.json", output);
 
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                textBox1.Text = listView1.SelectedItems[0].SubItems[0].Text;
+                textBox2.Text = listView1.SelectedItems[0].SubItems[1].Text;
+                textBox3.Text = listView1.SelectedItems[0].SubItems[2].Text;
+                Action doNothing = () => { };
+            }
         }
     }
 }
