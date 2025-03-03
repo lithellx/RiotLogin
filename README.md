@@ -17,11 +17,13 @@ Add your account on settings screen and select account to log in. Then click Log
 ## Status
 [Working]
 
--Now compatible with the new PlayStation login button and even if there is just one account it can be deleted too. (Updated on 12.2.2024)
+-Removed useless "Export data below" checkbox. Just double click the row. (03.03.2025)
 
--Client process name "RiotClientUx" changed to check if "RiotClientUx" or "Riot Client" working. (Updated on 02.27.2024)
+-Now compatible with the new PlayStation login button and even if there is just one account it can be deleted too. (12.02.2024)
 
--Client process name "RiotClientUx" changed to "Riot Client" (Updated on 02.23.2024)
+-Client process name "RiotClientUx" changed to check if "RiotClientUx" or "Riot Client" working. (02.27.2024)
+
+-Client process name "RiotClientUx" changed to "Riot Client" (02.23.2024)
 
 ## Media
 Video of how to use RiotLogin:
