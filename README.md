@@ -26,7 +26,7 @@ Add your account on settings screen and select account to log in. Then click Log
 -Client process name "RiotClientUx" changed to "Riot Client" (02.23.2024)
 
 ## Media
-Video of how to use RiotLogin:
+A video of how to use RiotLogin:
 
 https://github.com/lithellx/RiotLogin/assets/45209073/1610b1e8-ab83-4cbb-92c1-7fd6a0ee88e1
 
@@ -34,10 +34,6 @@ Screenshots:
 
 <img src="/Images/RiotLogin1.png" width="400"/>
 <img src="/Images/RiotLogin2.png" width="400"/>
-
-## Notes
-
-**You must install NewtonsoftJSON package to build this project!**
 
 ## Download
 https://www.unknowncheats.me/forum/league-of-legends/597675-riotlogin-automatic-riot-client-login-tool.html
